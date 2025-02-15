@@ -1,12 +1,7 @@
-from config import DB
 import pymysql
 from database import get_connection
 
 class UserModel:
-    @staticmethod
-    def get_connection():
-        return pymysql.connect(**DB)
-    
     @staticmethod
     def fetch_insert_user(user):
         conn = get_connection()
@@ -43,7 +38,7 @@ class UserModel:
     def get_user(user_id):
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT email, first_name, last_name, avatar FROM users WHERE id = %s", (user_id,))
+        cursor.execute("SELECT id, email, first_name, last_name, avatar FROM users WHERE id = %s", (user_id,))
         user = cursor.fetchone()
         cursor.close()
         conn.close()
@@ -53,7 +48,7 @@ class UserModel:
     def get_all_users():
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT email, first_name, last_name, avatar FROM users")
+        cursor.execute("SELECT id, email, first_name, last_name, avatar FROM users")
         users = cursor.fetchall()
         cursor.close()
         conn.close()

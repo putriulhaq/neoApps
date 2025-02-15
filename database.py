@@ -1,6 +1,5 @@
 import pymysql
 from pymysql.cursors import DictCursor
-from config import DB
 from dotenv import load_dotenv
 import os
 
