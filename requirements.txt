@@ -1,0 +1,4 @@
+flask-mysql 
+flask-restx 
+requests 
+pymysql
