@@ -2,3 +2,4 @@ flask-mysql
 flask-restx 
 requests 
 pymysql
+python-dotenv
